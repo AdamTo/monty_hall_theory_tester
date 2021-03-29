@@ -1,3 +1,5 @@
+// U can run test using node or just copy and paste the whole code to chrome console.
+
 // define variables
 const trials = 50000000;
 let chenged = 0;
@@ -23,10 +25,7 @@ const change_test = (gate) => {
 // Runs a test where you stick to your first choice.
 const unchange_test = (gate) => {
   let firts_pick_gate = Math.round(Math.random() * 2);
-  if (gate[firts_pick_gate] == 1) {
-    return 1;
-  }
-  return 0;
+  return gate[firts_pick_gate];
 };
 
 // Looping over a number of trials for the same gate, but every test draws its own gate.
@@ -37,5 +36,9 @@ for (let index = 0; index < trials; index++) {
 }
 
 // Printing results.
+console.log(`${chenged} wins for ${trials} trials when the gate was changed`);
 console.log((chenged / trials) * 100 + "%");
+console.log(
+  `${unchanged} wins for ${trials} trials when computer sticks to fierst pick`
+);
 console.log((unchanged / trials) * 100 + "%");
